@@ -4,8 +4,7 @@ from models import MoveEvent
 from serializers import MoveEventSearializer
 
 class MoveEventViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
+    print("MoveEventViewSet...")
+
     queryset = MoveEvent.objects.all().order_by('-date_joined')
     serializer_class = MoveEventSearializer

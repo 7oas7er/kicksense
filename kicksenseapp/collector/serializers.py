@@ -5,5 +5,7 @@ from models import MoveEvent
 
 class MoveEventSearializer(serializers.HyperlinkedModelSerializer):
     print('MoveEventSerealizer...')
-    model = MoveEvent
+    class Meta:
+        model = MoveEvent
+        fields = ('x','y','z')
 
