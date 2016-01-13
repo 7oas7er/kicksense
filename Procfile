@@ -1,1 +1,1 @@
-web: python manage.py collectstatic --noinput; gunicorn kicksensapp.wsgi
+web: python manage.py collectstatic --noinput; gunicorn kicksenseapp.wsgi
