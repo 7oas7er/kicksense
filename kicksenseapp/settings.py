@@ -143,6 +143,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+print(STATICFILES_DIRS)
+
 # Parse database configuration from $DATABASE_URL
 if ENV_ROLE == 'production':
     import dj_database_url
