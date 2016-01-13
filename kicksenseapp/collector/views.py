@@ -7,7 +7,4 @@ class MoveEventViewSet(viewsets.ModelViewSet):
     print("MoveEventViewSet...")
 
     queryset = MoveEvent.objects.all()
-
-    print(queryset)
-
     serializer_class = MoveEventSearializer
