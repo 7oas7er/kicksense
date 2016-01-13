@@ -6,5 +6,8 @@ from serializers import MoveEventSearializer
 class MoveEventViewSet(viewsets.ModelViewSet):
     print("MoveEventViewSet...")
 
-    queryset = MoveEvent.objects.all().order_by('-date_joined')
+    queryset = MoveEvent.objects.all()
+
+    print(queryset)
+
     serializer_class = MoveEventSearializer
