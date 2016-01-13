@@ -1,2 +1,5 @@
 from django.core.urlresolvers import reverse
-from djangorestframework.resources import ModelResource
+from django.db import models
+
+class KickerRessource():
+    id = models.CharField

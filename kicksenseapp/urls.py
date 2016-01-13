@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from djangorestframework.views import InstanceModelView
+
+from collector.resource import KickerRessource
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+
+    url(r'^(?P[^/]+)/$', InstanceModelView.as_view(resource=KickerRessource),  name='id')
 ]
