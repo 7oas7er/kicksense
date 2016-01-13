@@ -40,6 +40,9 @@ ALLOWED_HOSTS = ['*']
 # Get ENV VARIABLES key
 ENV_ROLE = get_env_variable('ENV_ROLE')
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = get_env_variable('SECRET_KEY')
+
 # Application definition
 
 INSTALLED_APPS = [
