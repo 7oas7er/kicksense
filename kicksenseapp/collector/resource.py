@@ -1,0 +1,2 @@
+from django.core.urlresolvers import reverse
+from djangorestframework.resources import ModelResource
