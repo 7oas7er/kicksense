@@ -1,14 +1,7 @@
-from django.conf.urls import url, include
-from rest_framework import routers
-from collector.views import MoveEventViewSet
+from django.conf.urls import url
+from collector import views
 
-router = routers.DefaultRouter()
-router.register(r'moveevent', MoveEventViewSet)
-
-
-# Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^moveevent/$', views.moveevent_list),
+    url(r'^moveevent/(?P<pk>[0-9]+)/$', views.moveevent_detail),
 ]
