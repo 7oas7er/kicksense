@@ -5,7 +5,7 @@ class MoveeventList(ListView):
     model = MoveEvent
     paginate_by = 12
     template_name = 'monitor/moveevent_list.html'
-    context_object_name = 'moveevent'
+    context_object_name = 'moveevents'
 
     def get_queryset(self):
             try:
