@@ -17,7 +17,7 @@ class JSONResponse(HttpResponse):
 @csrf_exempt
 def moveevent_list(request):
     """
-    List all code snippets, or create a new snippet.
+    List all move events, or create a new one.
     """
     if request.method == 'GET':
         moveevents = MoveEvent.objects.all()
@@ -35,7 +35,7 @@ def moveevent_list(request):
 @csrf_exempt
 def moveevent_detail(request, pk):
     """
-    Retrieve, update or delete a code snippet.
+    Retrieve, update or delete a move event.
     """
     try:
         moveevent = MoveEvent.objects.get(pk=pk)
@@ -57,3 +57,4 @@ def moveevent_detail(request, pk):
     elif request.method == 'DELETE':
         moveevent.delete()
         return HttpResponse(status=204)
+
