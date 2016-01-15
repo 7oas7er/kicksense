@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Moveevent List{% endblock title %}
+
+{% block content %}
+    <div id="content-container" class="container p-none">
+        <div id="al-container" class="side-p">
+            <div id="al-control">
+                <h3 class="ad-mh">Moveevent List
+                    {# Add Moveevent Link #}
+                </h3>
+                {# Moveevent Search Form #}
+                <form action="{% url 'moveevent_list' %}" method="get">
+                    <input id="al-search" type="text"
+                           name="moveevent" value="{{ request.GET.moveevent }}"
+                           class="form-control" />
+                    <input type="submit"
+                           value="Search" class="btn btn-success" />
+                </form>
+            </div>
+            {# List of Moveevents #}
+            <ul id="al-group" class="strip-list">
+                {% for moveevent in moveevents %}
+                    <li class="al-item">
+                        <span class="al-created">x {{ moveevent.x }}</span>
+                        <span class="al-created">y {{ moveevent.y }}</span>
+                        <span class="al-created">z {{ moveevent.z }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+            {# Pagination Section #}
+                {% if is_paginated %}
+                    <div id="al-paginate">
+                        <ul class="strip-list al-pgnt-list">
+                            {% if page_obj.has_previous %}
+                                <li class="pull-left">
+                                    <a href="{% url 'moveevent_list' %}?page={{ page_obj.previous_page_number }}
+                                    {% if request.GET.moveevent %}&moveevent={{ request.GET.moveevent }}{% endif %}">Prev</a>
+                                </li>
+                            {% endif %}
+                            {% if page_obj.has_next %}
+                                <li class="pull-right">
+                                    <a href="{% url 'moveevent_list' %}?page={{ page_obj.next_page_number }}
+                                    {% if request.GET.moveevent %}&moveevent={{ request.GET.moveevent }}{% endif %}">Next</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                {% endif %}
+        </div>
+    </div>
+{% endblock content %}
