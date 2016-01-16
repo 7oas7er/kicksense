@@ -4,6 +4,9 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from models import MoveEvent
 from serializers import MoveEventSerializer
+import logging
+
+logger = logging.getLogger(__name__)
 
 class JSONResponse(HttpResponse):
     """
@@ -19,12 +22,18 @@ def moveevent_list(request):
     """
     List all move events, or create a new one.
     """
+
+    logger.debug("moveevent_list...")
+
     if request.method == 'GET':
+        logger.debug("GET received")
         moveevents = MoveEvent.objects.all()
         serializer = MoveEventSerializer(moveevents, many=True)
         return JSONResponse(serializer.data)
 
     elif request.method == 'POST':
+        logger.debug("POST received")
+        logger.debug("Request body is " + request.body)
         data = JSONParser().parse(request)
         serializer = MoveEventSerializer(data=data)
         if serializer.is_valid():

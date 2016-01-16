@@ -166,3 +166,20 @@ STATICFILES_DIRS = (
 if ENV_ROLE == 'production':
     import dj_database_url
     DATABASES['default'] =  dj_database_url.config()
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+            'propagate': True,
+        },
+    },
+}
