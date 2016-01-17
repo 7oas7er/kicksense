@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 from django.core.exceptions import ImproperlyConfigured
+import logging
+
+logger = logging.getLogger(__name__)
 
 # Handling Key Import Errors
 def get_env_variable(var_name):
@@ -181,5 +184,17 @@ LOGGING = {
             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
             'propagate': True,
         },
+        'kicksenseapp.monitor': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+            'propagate': True,
+        },
+        'kicksenseapp.settings': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+            'propagate': True,
+        },
     },
 }
+
+print("STATICFILES_DIRS " + str(STATICFILES_DIRS))
