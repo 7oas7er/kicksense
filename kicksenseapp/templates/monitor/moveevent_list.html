@@ -33,13 +33,13 @@
                         <ul class="strip-list al-pgnt-list">
                             {% if page_obj.has_previous %}
                                 <li class="pull-left">
-                                    <a href="{% url 'moveevent_list' %}?page={{ page_obj.previous_page_number }}
+                                    <a href="{% url moveevent_list %}?page={{ page_obj.previous_page_number }}
                                     {% if request.GET.moveevent %}&moveevent={{ request.GET.moveevent }}{% endif %}">Prev</a>
                                 </li>
                             {% endif %}
                             {% if page_obj.has_next %}
                                 <li class="pull-right">
-                                    <a href="{% url 'moveevent_list' %}?page={{ page_obj.next_page_number }}
+                                    <a href="{% url moveevent_list %}?page={{ page_obj.next_page_number }}
                                     {% if request.GET.moveevent %}&moveevent={{ request.GET.moveevent }}{% endif %}">Next</a>
                                 </li>
                             {% endif %}
