@@ -27,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/kicksenseapp/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.2165059">
-              <caret line="161" column="14" selection-start-line="161" selection-start-column="14" selection-end-line="161" selection-end-column="14" />
+              <caret line="161" column="27" selection-start-line="161" selection-start-column="27" selection-end-line="161" selection-end-column="27" />
               <folding>
                 <element signature="e#313#322#0" expanded="true" />
               </folding>
@@ -176,6 +176,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="kicksenseapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kicksense" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kicksense" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kicksenseapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="monitor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -813,7 +831,7 @@
     <entry file="file://$PROJECT_DIR$/kicksenseapp/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2165059">
-          <caret line="161" column="14" selection-start-line="161" selection-start-column="14" selection-end-line="161" selection-end-column="14" />
+          <caret line="161" column="27" selection-start-line="161" selection-start-column="27" selection-end-line="161" selection-end-column="27" />
           <folding>
             <element signature="e#313#322#0" expanded="true" />
           </folding>
