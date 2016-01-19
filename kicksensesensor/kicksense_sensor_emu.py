@@ -1,7 +1,7 @@
 import http.client as httplib, sys, time, math, json, random
 
 baseUri = 'https://stormy-woodland-9591.herokuapp.com/moveevent'
-id="kicker1"
+# id="kicker1"
 
 headers = {}
 headers['Content-Type'] = 'application/json'
@@ -21,10 +21,12 @@ def getValues():
     return [round(x, 2),round(y, 2),round(z, 2)]
 
 conn = createConnection()
+
+# here is where the shit gets real
 while True:
     x, y, z = getValues()
     time.sleep(1)
-    print ("I feel vibrations!!!")
+    print ("I feel good vibrations!!!")
     body={"x":x,"y":y,"z":z}
     try:
         print ("Try to send POST as json: ", json.dumps(body))
