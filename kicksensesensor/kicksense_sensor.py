@@ -15,9 +15,9 @@ headers['Accept'] = '*/*'
 
 
 def crab_blink():
-    sense.load_image("crab4.png")
+    sense.load_image("pixels/crab4.png")
     time.sleep(0.1)
-    sense.load_image("crab1.png")
+    sense.load_image("pixels/crab1.png")
 
 class MyThread ( threading.Thread ):
 
@@ -51,37 +51,37 @@ def changed(x,y,z):
 
     return math.fabs(x-x1)>rumbleOffset or math.fabs(y-y1)>rumbleOffset or math.fabs(z-z1)>rumbleOffset
 def alligator():
-    sense.load_image("aligator2.png")
+    sense.load_image("pixels/aligator2.png")
     time.sleep(0.1)
-    sense.load_image("aligator3.png")
+    sense.load_image("pixels/aligator3.png")
     time.sleep(0.2)
-    sense.load_image("aligator2.png")
+    sense.load_image("pixels/aligator2.png")
     time.sleep(0.1)
-    sense.load_image("aligator3.png")
+    sense.load_image("pixels/aligator3.png")
     time.sleep(0.2)
-    sense.load_image("aligator2.png")
+    sense.load_image("pixels/aligator2.png")
     time.sleep(0.1)
-    sense.load_image("aligator3.png")
+    sense.load_image("pixels/aligator3.png")
     time.sleep(0.2)
-    sense.load_image("aligator2.png")
+    sense.load_image("pixels/aligator2.png")
     time.sleep(0.1)
-    sense.load_image("aligator3.png")
+    sense.load_image("pixels/aligator3.png")
 
 
 def crab():
-    sense.load_image("crab1.png")
+    sense.load_image("pixels/crab1.png")
     time.sleep(0.1)
-    sense.load_image("crab2.png")
+    sense.load_image("pixels/crab2.png")
     time.sleep(0.3)
-    sense.load_image("crab1.png")
+    sense.load_image("pixels/crab1.png")
     time.sleep(0.1)
-    sense.load_image("crab2.png")
+    sense.load_image("pixels/crab2.png")
     time.sleep(0.3)
-    sense.load_image("crab1.png")
+    sense.load_image("pixels/crab1.png")
     time.sleep(0.1)
-    sense.load_image("crab2.png")
+    sense.load_image("pixels/crab2.png")
     time.sleep(0.2)
-    sense.load_image("crab1.png")
+    sense.load_image("pixels/crab1.png")
     time.sleep(0.1)
 
 
