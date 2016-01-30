@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from models import MoveEvent
+from kicksenseapp.collector.models import MoveEvent
 
 
 class MoveEventSerializer(serializers.ModelSerializer):
