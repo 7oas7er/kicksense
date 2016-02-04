@@ -33,7 +33,7 @@ def moveevent_list(request):
 
     elif request.method == 'POST':
         logger.debug("POST received")
-        logger.debug("Request body is " + request.body)
+        logger.debug("Request body is " + str(request.body))
         data = JSONParser().parse(request)
         serializer = MoveEventSerializer(data=data)
         if serializer.is_valid():
