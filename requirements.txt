@@ -1,6 +1,10 @@
 Django==1.9.1
+django-braces==1.8.1
 django-chartit2==0.2.2
+-e git+https://github.com/novapost/django-highcharts.git@a24af3422c9c0d118b93ede2cc2e889bde8d97ce#egg=django_highcharts
+django-jquery==1.9.1
 djangorestframework==3.3.2
 psycopg2==2.6.1
 simplejson==3.8.1
+six==1.10.0
 wheel==0.26.0

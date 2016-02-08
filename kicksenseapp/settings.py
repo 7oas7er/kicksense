@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'kicksenseapp.collector',
     'kicksenseapp.monitor',
+    'django-highcharts',
 ]
 
 MIDDLEWARE_CLASSES = [
