@@ -8,4 +8,7 @@ class MoveEvent(models.Model):
     y = models.FloatField()
     z = models.FloatField()
 
+    class Meta:
+        ordering = ['-timestamp']
+
 
