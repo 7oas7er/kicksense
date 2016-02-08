@@ -27,7 +27,7 @@ def moveevent_list(request):
 
     if request.method == 'GET':
         logger.debug("GET received")
-        moveevents = MoveEvent.objects.all()
+        moveevents = MoveEvent.objects.all().reverse()
         serializer = MoveEventSerializer(moveevents, many=True)
         return JSONResponse(serializer.data)
 

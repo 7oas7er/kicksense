@@ -28,7 +28,7 @@ class MoveeventList(ListView):
                 owner=self.request.user
             )
         else:
-            moveevent_list = MoveEvent.objects.all()
+            moveevent_list = MoveEvent.objects.all().order_by('-timestamp')
         return moveevent_list
 
     def dispatch(self, *args, **kwargs):
