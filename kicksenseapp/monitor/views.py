@@ -64,11 +64,12 @@ def moveevent_chart_view(request):
                     'z']
                   }}],
             chart_options =
-              {'title': {
-                   'text': 'Move events of KickSense sensor over time'},
-               'xAxis': {
-                    'title': {
-                       'text': 'Time'}}})
+              {
+                'title': {'text': 'Move events of KickSense sensor over time'},
+                'subtitle': {'text': 'Source: WorldClimate.com'},
+                'xAxis': {'title': {'text': 'Time'}, 'type':'datetime'},
+                'legend': {'enabled': False}
+              })
 
     #Step 3: Send the chart object to the template.
     return render(request,'monitor/moveevent_chart.html',{'moveeventchart': cht})
