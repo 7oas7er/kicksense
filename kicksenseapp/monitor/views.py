@@ -1,7 +1,7 @@
 from django.views.generic import ListView
 from kicksenseapp.collector.models import MoveEvent
 from chartit import DataPool, Chart
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 import logging
 
 logger = logging.getLogger(__name__)
@@ -37,39 +37,39 @@ class MoveeventList(ListView):
         logger.debug("dispatch...")
         return super(MoveeventList, self).dispatch(*args, **kwargs)
 
-    def moveevent_chart_view(request):
-     #Step 1: Create a DataPool with the data we want to retrieve.
-        moveeventdata = \
-            DataPool(
-               series=
-                [{'options': {
-                   'source': MoveEvent.objects.all()},
-                  'terms': [
-                    'timestamp',
+def moveevent_chart_view(request):
+ #Step 1: Create a DataPool with the data we want to retrieve.
+    moveeventdata = \
+        DataPool(
+           series=
+            [{'options': {
+               'source': MoveEvent.objects.all()},
+              'terms': [
+                'timestamp',
+                'x',
+                'y',
+                'z']}
+             ])
+    #Step 2: Create the Chart object
+    cht = Chart(
+            datasource = moveeventdata,
+            series_options =
+              [{'options':{
+                  'type': 'line',
+                  'stacking': False},
+                'terms':{
+                  'timestamp': [
                     'x',
                     'y',
-                    'z']}
-                 ])
-        #Step 2: Create the Chart object
-        cht = Chart(
-                datasource = moveeventdata,
-                series_options =
-                  [{'options':{
-                      'type': 'line',
-                      'stacking': False},
-                    'terms':{
-                      'timestamp': [
-                        'x',
-                        'y',
-                        'z']
-                      }}],
-                chart_options =
-                  {'title': {
-                       'text': 'Move events of KickSense sensor over time'},
-                   'xAxis': {
-                        'title': {
-                           'text': 'Time'}}})
+                    'z']
+                  }}],
+            chart_options =
+              {'title': {
+                   'text': 'Move events of KickSense sensor over time'},
+               'xAxis': {
+                    'title': {
+                       'text': 'Time'}}})
 
-        #Step 3: Send the chart object to the template.
-        return render_to_response({'moveeventchart': cht})
+    #Step 3: Send the chart object to the template.
+    return render(request,'monitor/moveevent_chart.html',{'moveeventchart': cht})
 

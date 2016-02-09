@@ -42,8 +42,9 @@ ENV_ROLE = get_env_variable('ENV_ROLE')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = get_env_variable('SECRET_KEY')
 
-# Application definition
 
+
+# Application definition
 INSTALLED_APPS = [
     'rest_framework',
     'django.contrib.admin',
@@ -55,8 +56,8 @@ INSTALLED_APPS = [
     'kicksenseapp.collector',
     'kicksenseapp.monitor',
     'chartit',
-    'django-highcharts',
-    'jquery'
+    'jquery',
+    'django-highcharts.highcharts'
 ]
 
 MIDDLEWARE_CLASSES = [
