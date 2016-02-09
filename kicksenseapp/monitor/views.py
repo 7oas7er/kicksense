@@ -1,6 +1,7 @@
 from django.views.generic import ListView
 from kicksenseapp.collector.models import MoveEvent
 from chartit import DataPool, Chart
+from django.shortcuts import render_to_response
 import logging
 
 logger = logging.getLogger(__name__)
@@ -70,5 +71,5 @@ class MoveeventList(ListView):
                            'text': 'Time'}}})
 
         #Step 3: Send the chart object to the template.
-        return render_to_response({'moveeventdata': cht})
+        return render_to_response({'moveeventchart': cht})
 

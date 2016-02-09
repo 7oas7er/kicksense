@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% block title %}Moveevent List{% endblock title %}
+{% load chartit %}
+{{ moveeventchart|load_charts:"moveevent-chart" }}
 
 {% block content %}
     <div id="content-container" class="container p-none">
+        <div id='moveevent-chart'> Chart will be rendered here </div>
         <div id="al-container" class="side-p">
             <div id="al-control">
                 <h3 class="ad-mh">Moveevent List
