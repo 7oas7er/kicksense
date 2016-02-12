@@ -33,6 +33,9 @@ class MoveEvent:
     y = ''
     z = ''
 
+    def __str__(self):
+        return "timestamp: " + str(self.timestamp) + " x: " + str(self.x) + " y:" + str(self.y) + " z:" + str(self.z)
+
 
 
 def readConsoleArgs():
@@ -57,7 +60,12 @@ def openConnection(kickSenseServer):
 
 def getValues():
     moveEvent = MoveEvent()
-    moveEvent.timestamp = datetime.datetime.now()
+    now = datetime.datetime.now()
+    print("now " + str(now))
+    timetuple = now.timetuple()
+    print("timetuple " + str(timetuple))
+    moveEvent.timestamp = time.mktime(timetuple)
+    print("timestamp " + str(moveEvent.timestamp))
     moveEvent.x = random.random()
     moveEvent.y = random.random()
     moveEvent.z = random.random()
@@ -73,9 +81,9 @@ conn = openConnection(server)
 # here is where the shit gets real
 while True:
     moveEvent = getValues()
+    print("created move event " + str(moveEvent))
     time.sleep(1)
-    print ("I feel good vibrations!!!")
-    body={"t":str(moveEvent.timestamp),"x":str(moveEvent.x),"y":str(moveEvent.y),"z":str(moveEvent.z)}
+    body={"timestamp":str(moveEvent.timestamp),"x":str(moveEvent.x),"y":str(moveEvent.y),"z":str(moveEvent.z)}
     try:
         print ("Try to send POST as json: ", json.dumps(body) + " to " + createRestUrl())
         request = conn.request('POST', '/' + MOVEEVENT + '/', json.dumps(body), headers)
