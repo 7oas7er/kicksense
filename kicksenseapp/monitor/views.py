@@ -67,8 +67,8 @@ def moveevent_chart_view(request):
               {
                 'title': {'text': 'Move events of KickSense sensor over time'},
                 'subtitle': {'text': 'Source: WorldClimate.com'},
-                'xAxis': {'title': {'text': 'Time'}, 'type':'datetime'},
-                'legend': {'enabled': False}
+                'xAxis': {'title': {'text': 'Time'}, 'type':'datetime', 'dateTimeLabelFormats': { 'month': '%e. %b', 'year': '%b'}},
+                'legend': {'align': 'left','verticalAlign':'middle','layout':'vertical'}
               })
 
     #Step 3: Send the chart object to the template.

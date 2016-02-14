@@ -3,6 +3,7 @@
 import argparse
 import http.client as httplib, sys, time, math, json, random
 import datetime
+from collector.models import MoveEvent
 
 PROTOCOL_PREFIX_HTTPS = 'https://'
 PROTOCOL_PREFIX_HTTP = 'http://'
