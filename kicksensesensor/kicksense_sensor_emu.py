@@ -3,7 +3,6 @@
 import argparse
 import http.client as httplib, sys, time, math, json, random
 import datetime
-from collector.models import MoveEvent
 
 PROTOCOL_PREFIX_HTTPS = 'https://'
 PROTOCOL_PREFIX_HTTP = 'http://'
@@ -65,7 +64,7 @@ def getValues():
     print("now " + str(now))
     timetuple = now.timetuple()
     print("timetuple " + str(timetuple))
-    moveEvent.timestamp = time.mktime(timetuple)
+    moveEvent.timestamp = time.mktime(timetuple)*1000
     print("timestamp " + str(moveEvent.timestamp))
     moveEvent.x = random.random()
     moveEvent.y = random.random()

@@ -55,7 +55,9 @@ def moveevent_chart_view(request):
             datasource = moveeventdata,
             series_options =
               [{'options':{
-                  'type': 'line',
+                  #'pointStart': 'Date.UTC(2016,1,14)',
+                  #'pintInterval':'1000',
+                  'type': 'spline',
                   'stacking': False},
                 'terms':{
                   'timestamp': [
@@ -65,11 +67,30 @@ def moveevent_chart_view(request):
                   }}],
             chart_options =
               {
+                'zoomType': 'x',
                 'title': {'text': 'Move events of KickSense sensor over time'},
-                'subtitle': {'text': 'Source: WorldClimate.com'},
-                'xAxis': {'title': {'text': 'Time'}, 'type':'datetime', 'dateTimeLabelFormats': { 'month': '%e. %b', 'year': '%b'}},
-                'legend': {'align': 'left','verticalAlign':'middle','layout':'vertical'}
-              })
+                'xAxis': {'title': {'text': 'Time'}, 'type':'datetime', 'dateTimeLabelFormats':
+                                {'millisecond':"%A, %b %e, %H:%M:%S.%L",
+                                 'second':"%A, %b %e, %H:%M:%S",'minute':"%A, %b %e, %H:%M",
+                                 'hour':"%A, %b %e, %H:%M",
+                                 'day':"%A, %b %e, %Y",
+                                 'week':"Week from %A, %b %e, %Y",
+                                 'month':"%B %Y",
+                                 'year':"%Y"},
+                          'units': [['millisecond',	['500']]],
+                          'tickinterval':'3600*1000'},
+                'legend': {'align': 'left','verticalAlign':'middle','layout':'vertical'},
+                'tooltip': {'dateTimeLabelFormats':
+                                {'millisecond':"%A, %b %e, %H:%M:%S.%L",
+                                 'second':"%A, %b %e, %H:%M:%S",'minute':"%A, %b %e, %H:%M",
+                                 'hour':"%A, %b %e, %H:%M",
+                                 'day':"%A, %b %e, %Y",
+                                 'week':"Week from %A, %b %e, %Y",
+                                 'month':"%B %Y",
+                                 'year':"%Y"}
+                            }
+              }
+    )
 
     #Step 3: Send the chart object to the template.
     return render(request,'monitor/moveevent_chart.html',{'moveeventchart': cht})
