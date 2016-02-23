@@ -2,6 +2,8 @@ from django.views.generic import ListView
 from kicksenseapp.collector.models import MoveEvent
 from chartit import DataPool, Chart
 from django.shortcuts import render
+from datetime import time
+from datetime import datetime
 import logging
 
 logger = logging.getLogger(__name__)
@@ -43,9 +45,9 @@ def moveevent_chart_view(request):
         DataPool(
            series=
             [{'options': {
-               'source': MoveEvent.objects.all()},
+               'source': MoveEvent.objects.order_by('-timestamp')[:20]},
               'terms': [
-                'timestamp',
+                'timestamp', lambda d: time.mktime(d.timetuple()),
                 'x',
                 'y',
                 'z']}
@@ -56,7 +58,7 @@ def moveevent_chart_view(request):
             series_options =
               [{'options':{
                   #'pointStart': 'Date.UTC(2016,1,14)',
-                  #'pintInterval':'1000',
+                  #'pointInterval':'1000',
                   'type': 'spline',
                   'stacking': False},
                 'terms':{
@@ -69,16 +71,19 @@ def moveevent_chart_view(request):
               {
                 'zoomType': 'x',
                 'title': {'text': 'Move events of KickSense sensor over time'},
-                'xAxis': {'title': {'text': 'Time'}, 'type':'datetime', 'dateTimeLabelFormats':
-                                {'millisecond':"%A, %b %e, %H:%M:%S.%L",
-                                 'second':"%A, %b %e, %H:%M:%S",'minute':"%A, %b %e, %H:%M",
-                                 'hour':"%A, %b %e, %H:%M",
-                                 'day':"%A, %b %e, %Y",
-                                 'week':"Week from %A, %b %e, %Y",
-                                 'month':"%B %Y",
-                                 'year':"%Y"},
-                          'units': [['millisecond',	['500']]],
-                          'tickinterval':'3600*1000'},
+                'xAxis': {'title': {'text': 'Time'},
+                          'type':'datetime',
+                          'dateTimeLabelFormats':
+                             {'millisecond':"%A, %b %e, %H:%M:%S.%L",
+                                'second':"%A, %b %e, %H:%M:%S",'minute':"%A, %b %e, %H:%M",
+                                'hour':"%A, %b %e, %H:%M",
+                                'day':"%A, %b %e, %Y",
+                                'week':"Week from %A, %b %e, %Y",
+                                'month':"%B %Y",
+                                'year':"%Y"},
+                          #'units': [['millisecond',	['500']]],
+                          'tickinterval':'3600*1000'
+                          },
                 'legend': {'align': 'left','verticalAlign':'middle','layout':'vertical'},
                 'tooltip': {'dateTimeLabelFormats':
                                 {'millisecond':"%A, %b %e, %H:%M:%S.%L",
@@ -89,7 +94,8 @@ def moveevent_chart_view(request):
                                  'month':"%B %Y",
                                  'year':"%Y"}
                             }
-              }
+              },
+         x_sortf_mapf_mts=(None, lambda i: datetime.fromtimestamp(i).strftime("%A, %b %e, %H:%M:%S"), False)
     )
 
     #Step 3: Send the chart object to the template.

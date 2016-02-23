@@ -64,7 +64,7 @@ def getValues():
     print("now " + str(now))
     timetuple = now.timetuple()
     print("timetuple " + str(timetuple))
-    moveEvent.timestamp = time.mktime(timetuple)*1000
+    moveEvent.timestamp = time.mktime(timetuple)
     print("timestamp " + str(moveEvent.timestamp))
     moveEvent.x = random.random()
     moveEvent.y = random.random()
